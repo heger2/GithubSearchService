@@ -6,7 +6,7 @@ service GithubSearchService {
 
 message SearchRequest {
     string search_term = 1;
-    string user = 2;
+    map<string, string> qualifiers = 2;
 }
 
 message SearchResponse {

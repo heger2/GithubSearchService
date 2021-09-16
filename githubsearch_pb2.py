@@ -19,11 +19,49 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12githubsearch.proto\"2\n\rSearchRequest\x12\x13\n\x0bsearch_term\x18\x01 \x01(\t\x12\x0c\n\x04user\x18\x02 \x01(\t\"*\n\x0eSearchResponse\x12\x18\n\x07results\x18\x01 \x03(\x0b\x32\x07.Result\"(\n\x06Result\x12\x10\n\x08\x66ile_url\x18\x01 \x01(\t\x12\x0c\n\x04repo\x18\x02 \x01(\t2@\n\x13GithubSearchService\x12)\n\x06Search\x12\x0e.SearchRequest\x1a\x0f.SearchResponseb\x06proto3'
+  serialized_pb=b'\n\x12githubsearch.proto\"\x8b\x01\n\rSearchRequest\x12\x13\n\x0bsearch_term\x18\x01 \x01(\t\x12\x32\n\nqualifiers\x18\x02 \x03(\x0b\x32\x1e.SearchRequest.QualifiersEntry\x1a\x31\n\x0fQualifiersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"*\n\x0eSearchResponse\x12\x18\n\x07results\x18\x01 \x03(\x0b\x32\x07.Result\"(\n\x06Result\x12\x10\n\x08\x66ile_url\x18\x01 \x01(\t\x12\x0c\n\x04repo\x18\x02 \x01(\t2@\n\x13GithubSearchService\x12)\n\x06Search\x12\x0e.SearchRequest\x1a\x0f.SearchResponseb\x06proto3'
 )
 
 
 
+
+_SEARCHREQUEST_QUALIFIERSENTRY = _descriptor.Descriptor(
+  name='QualifiersEntry',
+  full_name='SearchRequest.QualifiersEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='SearchRequest.QualifiersEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='SearchRequest.QualifiersEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=113,
+  serialized_end=162,
+)
 
 _SEARCHREQUEST = _descriptor.Descriptor(
   name='SearchRequest',
@@ -41,16 +79,16 @@ _SEARCHREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='user', full_name='SearchRequest.user', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='qualifiers', full_name='SearchRequest.qualifiers', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_SEARCHREQUEST_QUALIFIERSENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -59,8 +97,8 @@ _SEARCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22,
-  serialized_end=72,
+  serialized_start=23,
+  serialized_end=162,
 )
 
 
@@ -91,8 +129,8 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=74,
-  serialized_end=116,
+  serialized_start=164,
+  serialized_end=206,
 )
 
 
@@ -130,10 +168,12 @@ _RESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=118,
-  serialized_end=158,
+  serialized_start=208,
+  serialized_end=248,
 )
 
+_SEARCHREQUEST_QUALIFIERSENTRY.containing_type = _SEARCHREQUEST
+_SEARCHREQUEST.fields_by_name['qualifiers'].message_type = _SEARCHREQUEST_QUALIFIERSENTRY
 _SEARCHRESPONSE.fields_by_name['results'].message_type = _RESULT
 DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
 DESCRIPTOR.message_types_by_name['SearchResponse'] = _SEARCHRESPONSE
@@ -141,11 +181,19 @@ DESCRIPTOR.message_types_by_name['Result'] = _RESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SearchRequest = _reflection.GeneratedProtocolMessageType('SearchRequest', (_message.Message,), {
+
+  'QualifiersEntry' : _reflection.GeneratedProtocolMessageType('QualifiersEntry', (_message.Message,), {
+    'DESCRIPTOR' : _SEARCHREQUEST_QUALIFIERSENTRY,
+    '__module__' : 'githubsearch_pb2'
+    # @@protoc_insertion_point(class_scope:SearchRequest.QualifiersEntry)
+    })
+  ,
   'DESCRIPTOR' : _SEARCHREQUEST,
   '__module__' : 'githubsearch_pb2'
   # @@protoc_insertion_point(class_scope:SearchRequest)
   })
 _sym_db.RegisterMessage(SearchRequest)
+_sym_db.RegisterMessage(SearchRequest.QualifiersEntry)
 
 SearchResponse = _reflection.GeneratedProtocolMessageType('SearchResponse', (_message.Message,), {
   'DESCRIPTOR' : _SEARCHRESPONSE,
@@ -162,6 +210,7 @@ Result = _reflection.GeneratedProtocolMessageType('Result', (_message.Message,),
 _sym_db.RegisterMessage(Result)
 
 
+_SEARCHREQUEST_QUALIFIERSENTRY._options = None
 
 _GITHUBSEARCHSERVICE = _descriptor.ServiceDescriptor(
   name='GithubSearchService',
@@ -170,8 +219,8 @@ _GITHUBSEARCHSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=160,
-  serialized_end=224,
+  serialized_start=250,
+  serialized_end=314,
   methods=[
   _descriptor.MethodDescriptor(
     name='Search',
